@@ -4,7 +4,8 @@ def mainMenu():
     print("")
     print("1. Create a new account")
     print("2. Manage my account")
-    print("3. Quit")
+    print("3. Login to an account")
+    print("4. Quit")
     print("********************************************************")
     return input("Please Choose a number: ")
 

@@ -19,20 +19,49 @@ class SocialNetwork:
 
     def  create_account(self):
         #implement function that creates account here
+        name = input("What is your name? ")
+        age = input("What is your age? ")
         print("Creating ...")
+        p1 = Person(name, age)
+        self.list_of_people.append(p1)
         pass
+
+    def login(self):
+        for i in range(len(self.list_of_people)):
+            print((i + 1), self.list_of_people[i].get_Name())
+        choice = int(input("Enter the number next to the user you would like to log into as: "))
+        return self.list_of_people[choice - 1]
+
 
 
 class Person:
     def __init__(self, name, age):
-        self.id = name
-        self.year = age
+        self.name = name
+        self.age = age
         self.friendlist = []
 
     def add_friend(self, person_object):
         #implement adding friend. Hint add to self.friendlist
+        self.friendlist.append(person_object)
+        pass
+    
+    def print_friends(self):
+        for i in range(len(self.friendlist)):
+            print((i + 1), self.friendlist[i].name, "")
         pass
 
     def send_message(self):
         #implement sending message to friend here
         pass
+
+    def edit_Details(self):
+        new_Age = eval(input("Enter new Age: "))
+        self.age = new_Age
+        new_Name = input("Enter your new Name: ")
+        self.name = new_Name
+    
+    def get_Name(self):
+        return self.name
+    
+    def get_Age(self):
+        return self.age
