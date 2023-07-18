@@ -27,8 +27,7 @@ if __name__ == "__main__":
                 if inner_menu_choice == "5":
                     break
                 elif (inner_menu_choice == "1"):
-                    current_User.name = input("Enter your new name: ")
-                    current_User.age = int(input("Enter your new Age: "))
+                    current_User.edit_Details()
                     break
                 elif (inner_menu_choice == "2"):
                     friend_Name = input("What is the name of the friend you would like to add: ")
@@ -44,7 +43,35 @@ if __name__ == "__main__":
                     break   
                 elif (inner_menu_choice == "3"):
                     current_User.print_friends()    
-                    break                 
+                    break     
+                    
+                elif (inner_menu_choice == "4"):
+                    current_User.print_friends()
+                    friend_choice = int(input("Please enter the number of the friend to send a message: "))
+                    msg = input("Please enter your message: ")
+                    friend = current_User.return_Friend(friend_choice - 1)
+                    friend.add_Message(current_User.send_message(msg))  
+                    break
+
+                    """
+                    current_User.print_friends()
+                    friend_choice = input("Please enter the name of the friend to send a message: ")
+                    i = 0
+                    while (i < len(ai_social_network.list_of_people)):
+                        if (ai_social_network.list_of_people[i].name == friend_choice):
+                            friend = ai_social_network.list_of_people[i]
+                            friend.addMes
+                            print(friend_Name, "has been added to your friends list")
+                            break
+                        else:
+                            i += 1
+                        print("User could not be found.")
+                    """
+                
+                
+                elif (inner_menu_choice == "5"):
+                    current_User.view_Messages()
+                    break
                 else:
                     inner_menu_choice = social_network_ui.manageAccountMenu()
                 
